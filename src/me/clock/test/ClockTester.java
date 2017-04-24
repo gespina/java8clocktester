@@ -4,6 +4,7 @@ import java.time.Clock;
 import java.time.Instant;
 import java.time.Duration;
 import java.time.ZoneId;
+import java.util.concurrent.TimeUnit;
 
 // one class needs to have a main() method
 public class ClockTester {
@@ -18,9 +19,9 @@ public class ClockTester {
 				Clock delta = Clock.offset(clock, Duration.ofSeconds(initial++ * 2));
 				System.out.println(delta.instant());
 				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
+					TimeUnit.SECONDS.sleep(1);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
 				}
 			}
 		});
